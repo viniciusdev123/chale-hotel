@@ -1,0 +1,213 @@
+/*****************
+Estrutura do site
+******************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Helvetica, "Trebuchet MS", sans-serif;
+    background: #fff url(../imagens/bg.png);
+    margin: 15px;
+}
+
+#container {
+    background: #ede9cc url(../imagens/bg-container.png) top center repeat-y; /*a imagem vai iniciar do topo, vai ficar sempre centralizada e vai repetir de forma vertical.*/
+    margin: 0 auto;
+    min-width: 740px; /*Layout líquido*/
+    max-width: 1180px;
+}
+
+#topo {
+    position: relative; /*Vou precisar definir a área do topo como relative, para as posições absolute ficarem alinhadas com a área topo, e não com o body.*/
+    background: #dbcd87;
+    height: 15.4em;
+    min-height: 250px;
+}
+
+#area-logo {
+    position: absolute; /*Agora vou ocupar a área absoluta da nossa área #topo, pois no mesmo eu definí a posição como 'relativa'*/
+    top: 0;
+    left: 0; /*Vou mover para o espaço limite da esquerda*/
+    background: url(../imagens/topo-imagem-principal.png) no-repeat;
+    width: 100%;
+    height: 250px;
+    z-index: 1;
+}
+
+.logo a { /*Vou formatar todos os links que tiverem a class "logo"*/
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 3; /*Quero que meu logo se sobressaia sobre a area-logo e area-menu*/
+    background: url(../imagens/logo.png) no-repeat;
+    width: 151px; /*Colocar a mesma largura/altura da imagem*/
+    height: 66px;
+    text-indent: -3000px; /*vai ocultar a letra, porém vai mostrar a mesma quando o css não carregar no site, isso acontece por uma questão de ACESSIBILIDADE*/
+    
+}
+
+#area-menu {
+    position: absolute;
+    top: 0;
+    right: 0; /*Vou mover para o espaço limite da direita*/
+    background: url(../imagens/topo-imagem-lateral.png) no-repeat;
+    width: 450px;
+    height: 250px;
+    z-index: 2; /*Com isso, a area-menu vai sobrepor a area-logo*/
+}
+
+#conteudo-menu {
+    margin-left: 90px; /*Vai empurrar o conteúdo para a direita*/
+    margin-right: 15px;
+    padding-top: 15px;
+
+}
+
+#menu-locais {
+    border-bottom: 1px solid #b5ab56;
+    border-top: 1px solid #b5ab56;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 0.7em; /*Para caber todas as letras*/
+    color: #8b8448;
+
+}
+
+#menu-locais .locais { /*Isso significa que eu vou formatar a class 'locais' que está dentro do 'menu-locais'*/
+    float: left;
+    line-height: 2.1em; /*Para centralizar a linha*/
+}
+
+a {
+    text-decoration: none;
+}
+
+a.reserva { /*vou formatar a class 'reserva' que está dentro de um link*/
+    text-transform: uppercase; /*Todas as letras vão ficar MAIÚSCULAS*/
+    background: #a29750;
+    color: #fff5b0;
+    padding: 5px 10px;
+    float: right;
+}
+
+/***************************
+BARRA DE NAVEGAÇÃO VERTICAL
+***************************/
+
+#menu {
+    margin-top: 15px;
+
+}
+
+ul {
+    list-style: none; /*Vai remover as bolinhas de tópico no começo da ul*/
+}
+
+ul#navegacao {
+    float: left; /*Para ambas flutuar, precisarei colocar o float nas duas (#navegacao e .depoimento)*/
+}
+
+ul#navegacao a{ /*quero formatar a ul que está dentro de navegacao e em seguida quero o link.*/
+    text-transform: uppercase;
+    font-size: 0.8em; /*Diminuir a fonte para caber a imagem*/
+    padding: 5px;
+    color: #6e672c;
+    line-height: 30px; /*Vou definir os espaçamento entre as linhas. É bem mais fácil fazer desta forma, ao invés de fazer com margin ou padding.*/
+}
+
+ul#navegacao a:hover{
+    background: #fdf6be;
+}
+
+.depoimento {
+    width: 226px;
+    height: 164px;
+    float: right;
+}
+
+/******************
+ÁREA DE CONTEÚDOS
+*******************/
+
+#area-principal {
+    float: left;
+    width: 50%; /*Para criar um layout líquido, coloque a largura em porcentagem(%)*/
+    background: url(../imagens/bg-area-principal.png) top left repeat-x; /*quero que minha imagem comece do topo, da esquerda e que repita de forma horizontal*/
+    padding: 15px 0px;
+}
+
+#area-lateral {
+    float: right;
+    width: 50%;
+    background: url(../imagens/bg-area-lateral.png) top left repeat-x;
+    padding: 20px 0px;
+
+
+}
+
+.conteudo { /*como eu irei usar na area-principal e area-lateral, então é melhor fazer uma class*/
+    margin: 0 auto;
+    width: 90%;
+
+}
+
+#rodape {
+    clear: both; /*o rodape fará com que o background do nosso container apareça*/
+    padding: 16px;
+    background: #fff url(../imagens/bg-rodape.png) repeat-x top; /*Quero que repita na horizontal(x), à partir do topo.*/
+    color: #7d7640;
+}
+
+/**************
+FORMATAÇÕES DE TEXTOS
+***************/
+
+h2 {
+    color: #7d7640;
+    font-size: 1.1em;
+    padding: 5px 0px;
+
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/**************************
+FORMATAÇÕES DA ÁREA LATERAL
+***************************/
+
+#beneficios li {
+    padding: 8px;
+    border-bottom: 1px solid #f3efcb;
+    height: 6em;
+
+}
+
+#beneficios li a img { /*vou selecionar a imagem que está dentro de um link e que está dentro da li*/
+    float: left;
+    margin-right: 8px;
+}
+
+#beneficios li a p{ /*formatar um tamanho apenas para o nosso parágrafo*/
+    color: #000;
+    font-size: 0.8em;
+
+}
+
+#beneficios li a h3 {
+    font-size: 1em;
+    color: #615b2d;
+    padding: 5px 0px;
+    background: url(../imagens/ornamento.png) no-repeat center right;
+}
+
+#beneficios li:hover {
+    background: #f6f3d6;
+    cursor: pointer;
+}
+
